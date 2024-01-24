@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<form>
+    1st Number: <input type="text" id="firstNumber" /><br>
+    2nd Number: <input type="text" id="secondNumber" /><br>
+    <input type="button" onClick="multiplyBy()" value="Multiply" />
+    <input type="button" onClick="divideBy()" value="Divide" />
+</form>
+
+<p>The Result is: <br>
+    <span id="result"></span>
+</p>
+
+<script>
+    function multiplyBy() {
+        var firstNumber = parseFloat(document.getElementById('firstNumber').value);
+        var secondNumber = parseFloat(document.getElementById('secondNumber').value);
+        
+        if (!isNaN(firstNumber) && !isNaN(secondNumber)) {
+            var result = firstNumber * secondNumber;
+            document.getElementById('result').innerText = 'Multiplication Result: ' + result;
+        } else {
+            alert('Please enter valid numbers.');
+        }
+    }
+
+    function divideBy() {
+        var firstNumber = parseFloat(document.getElementById('firstNumber').value);
+        var secondNumber = parseFloat(document.getElementById('secondNumber').value);
+        
+        if (!isNaN(firstNumber) && !isNaN(secondNumber) && secondNumber !== 0) {
+            var result = firstNumber / secondNumber;
+            document.getElementById('result').innerText = 'Division Result: ' + result;
+        } else if (secondNumber === 0) {
+            alert('Cannot divide by zero.');
+        } else {
+            alert('Please enter valid numbers.');
+        }
+    }
+</script>
+
+</body>
+</html>
